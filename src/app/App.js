@@ -23,14 +23,17 @@ function App() {
         );
     };
     return (
-        <div>
-            <Users
-                onDelete={handleDelete}
-                onToggleBookMark={handleToggleBookMark}
-                users={users}
-            />
-        </div>
+        <>{
+            users && (
+                <Users
+                    onDelete={handleDelete}
+                    onToggleBookMark={handleToggleBookMark}
+                    users={users}
+                />
+            )
+        }
+        </>
     );
-}
+};
 
 export default App;
