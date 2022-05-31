@@ -4,7 +4,7 @@ import api from "../api";
 import QualitiesList from "./qualitiesList";
 import { useHistory } from "react-router-dom";
 
-const UserItem = ({ userId }) => {
+const UserPage = ({ userId }) => {
     const history = useHistory();
     const [user, setUser] = useState();
     useEffect(() => {
@@ -16,21 +16,21 @@ const UserItem = ({ userId }) => {
     if (user) {
         return (
             <div>
-                <h2> {user.name}</h2>
-                <p>Профессия: {user.profession.name}</p>
+                <h1> {user.name}</h1>
+                <h2>Профессия: {user.profession.name}</h2>
                 <QualitiesList qualities={user.qualities} />
                 <p>completedMeetings: {user.completedMeetings}</p>
-                <p>Rate: {user.rate}</p>
-                <button className = "btn btn-secondary" onClick={handleClick}> Все Пользователи</button>
+                <h2>Rate: {user.rate}</h2>
+                <button onClick={handleClick}> Все Пользователи</button>
             </div>
         );
     } else {
-        return <p>Loading</p>;
+        return <h1>Loading</h1>;
     }
 };
 
-UserItem.propTypes = {
+UserPage.propTypes = {
     userId: PropTypes.string.isRequired
 };
 
-export default UserItem;
+export default UserPage;
