@@ -46,6 +46,7 @@ const UsersList = () => {
     };
 
     const handleSearchValue = ({ target }) => {
+        setSelectedProf(undefined);
         setSearchValue(target.value);
     };
 
